@@ -1,0 +1,7 @@
+*.so
+*.pro.user
+Makefile*
+./debug
+./release
+
+
