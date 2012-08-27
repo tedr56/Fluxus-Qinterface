@@ -1,7 +1,6 @@
 *.so
 *.pro.user
 Makefile*
-./debug
-./release
-
-
+debug/*
+release/*
+ui_*.h
