@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>602</width>
+    <height>390</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FluxusBros Interface</string>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>602</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionShow_Medias_Dock"/>
+    <addaction name="actionShow_Decks_Dock"/>
+    <addaction name="actionShow_Side_A_Dock"/>
+    <addaction name="actionShow_Side_B_Dock"/>
+    <addaction name="actionShow_Mixer_Dock"/>
+    <addaction name="actionShow_Table_Dock"/>
+    <addaction name="separator"/>
+    <addaction name="actionAllow_multiple_tables"/>
+   </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuOpen_Recent_Table">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="tearOffEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>Open Recent Table</string>
+     </property>
+    </widget>
+    <addaction name="actionOpen_Table"/>
+    <addaction name="menuOpen_Recent_Table"/>
+    <addaction name="separator"/>
+    <addaction name="actionPreferences"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="SideADock">
+   <property name="windowTitle">
+    <string>Side A</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="SideADockContents">
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="DeckDock">
+   <property name="minimumSize">
+    <size>
+     <width>164</width>
+     <height>116</height>
+    </size>
+   </property>
+   <property name="acceptDrops">
+    <bool>true</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFeatureMask</set>
+   </property>
+   <property name="windowTitle">
+    <string>Decks</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>4</number>
+   </attribute>
+   <widget class="QWidget" name="DeckDockWidget">
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="DropTabWidget" name="DeckWidget">
+       <property name="acceptDrops">
+        <bool>true</bool>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <property name="movable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="Deck1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <attribute name="title">
+         <string>Deck 1</string>
+        </attribute>
+       </widget>
+       <widget class="QWidget" name="Deck2">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <attribute name="title">
+         <string>Deck 2</string>
+        </attribute>
+       </widget>
+       <widget class="QWidget" name="Visuals">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <attribute name="title">
+         <string>Visuals</string>
+        </attribute>
+       </widget>
+       <widget class="QWidget" name="FXs">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <attribute name="title">
+         <string>FXs</string>
+        </attribute>
+       </widget>
+       <widget class="QWidget" name="DeckAddTab">
+        <attribute name="title">
+         <string notr="true">+</string>
+        </attribute>
+        <attribute name="toolTip">
+         <string>Add a new Deck Tab</string>
+        </attribute>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="SideBDock">
+   <property name="windowTitle">
+    <string>Side B</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="SideBDockContents">
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="TableDock">
+   <property name="acceptDrops">
+    <bool>true</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFeatureMask</set>
+   </property>
+   <property name="windowTitle">
+    <string>Table</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="TableDockWidget">
+    <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="MixerDock">
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Mixer</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="MixerDockWidget">
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout"/>
+   </widget>
+  </widget>
+  <action name="actionShow_Medias_Dock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Medias Dock</string>
+   </property>
+  </action>
+  <action name="actionShow_Decks_Dock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Decks Dock</string>
+   </property>
+  </action>
+  <action name="actionShow_Side_A_Dock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Side A Dock</string>
+   </property>
+  </action>
+  <action name="actionShow_Side_B_Dock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Side B Dock</string>
+   </property>
+  </action>
+  <action name="actionShow_Mixer_Dock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Mixer Dock</string>
+   </property>
+  </action>
+  <action name="actionOpen_Table">
+   <property name="text">
+    <string>Open Table</string>
+   </property>
+  </action>
+  <action name="actionShow_Table_Dock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Table Dock</string>
+   </property>
+  </action>
+  <action name="actionAllow_multiple_tables">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Allow multiple tables</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <zorder>DeckDock</zorder>
+  <zorder>SideBDock</zorder>
+  <zorder>SideADock</zorder>
+  <zorder>TableDock</zorder>
+  <zorder>MixerDock</zorder>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>DropTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>droptabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionShow_Decks_Dock</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DeckDock</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>507</x>
+     <y>107</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Side_A_Dock</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SideADock</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>273</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Side_B_Dock</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SideBDock</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>532</x>
+     <y>273</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Mixer_Dock</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MixerDock</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>39</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Table_Dock</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TableDock</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>300</x>
+     <y>328</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionQuit</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>300</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

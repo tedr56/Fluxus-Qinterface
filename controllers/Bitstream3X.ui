@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>408</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="sizeConstraint">
+    <enum>QLayout::SetMinimumSize</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item row="7" column="11">
+      <widget class="KnobControl" name="knobcontrol_29">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>36</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="8">
+      <widget class="KnobControl" name="knobcontrol_26">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>33</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="7">
+      <widget class="KnobControl" name="knobcontrol_9">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>16</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="8">
+      <widget class="KnobControl" name="knobcontrol_18">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>25</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="14">
+      <widget class="KnobControl" name="knobcontrol_32">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>39</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="12">
+      <widget class="KnobControl" name="knobcontrol_30">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>37</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="10">
+      <widget class="KnobControl" name="knobcontrol_4">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>11</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="14">
+      <widget class="KnobControl" name="knobcontrol_16">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>23</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="13">
+      <widget class="KnobControl" name="knobcontrol_31">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>38</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="8">
+      <widget class="KnobControl" name="knobcontrol_10">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>17</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="7">
+      <widget class="KnobControl" name="knobcontrol">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>8</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="8">
+      <widget class="KnobControl" name="knobcontrol_2">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>9</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="14">
+      <widget class="KnobControl" name="knobcontrol_24">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>31</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="13">
+      <widget class="KnobControl" name="knobcontrol_15">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>22</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="12">
+      <widget class="KnobControl" name="knobcontrol_14">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>21</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="7">
+      <widget class="KnobControl" name="knobcontrol_17">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>24</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="13">
+      <widget class="KnobControl" name="knobcontrol_7">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>14</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="14">
+      <widget class="KnobControl" name="knobcontrol_8">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>15</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="10">
+      <widget class="KnobControl" name="knobcontrol_20">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>27</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="10">
+      <widget class="KnobControl" name="knobcontrol_12">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>19</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="11">
+      <widget class="KnobControl" name="knobcontrol_13">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>20</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="9">
+      <widget class="KnobControl" name="knobcontrol_11">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>18</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="12">
+      <widget class="KnobControl" name="knobcontrol_6">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>13</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="7">
+      <widget class="KnobControl" name="knobcontrol_25">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>32</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="11">
+      <widget class="KnobControl" name="knobcontrol_5">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>12</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="13">
+      <widget class="KnobControl" name="knobcontrol_23">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>30</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="11">
+      <widget class="KnobControl" name="knobcontrol_21">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>28</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="9">
+      <widget class="KnobControl" name="knobcontrol_19">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>26</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="10">
+      <widget class="KnobControl" name="knobcontrol_28">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>35</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="9">
+      <widget class="KnobControl" name="knobcontrol_27">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>34</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="9">
+      <widget class="KnobControl" name="knobcontrol_3">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>10</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="12">
+      <widget class="KnobControl" name="knobcontrol_22">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>29</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="7">
+      <widget class="FaderControl" name="FaderControl">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>40</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="8">
+      <widget class="FaderControl" name="FaderControl_2">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>41</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="9">
+      <widget class="FaderControl" name="FaderControl_3">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>42</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="10">
+      <widget class="FaderControl" name="FaderControl_4">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>43</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="11">
+      <widget class="FaderControl" name="FaderControl_5">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>44</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="12">
+      <widget class="FaderControl" name="FaderControl_6">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>45</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="13">
+      <widget class="FaderControl" name="FaderControl_7">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>46</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="14">
+      <widget class="FaderControl" name="FaderControl_8">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>47</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMinimumSize</enum>
+     </property>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="FaderControl" name="FaderControl_10">
+               <property name="MidiChannel" stdset="0">
+                <number>4</number>
+               </property>
+               <property name="MidiControl" stdset="0">
+                <number>7</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="CrossFaderControl" name="CrossFaderControl_11">
+               <property name="MidiChannel" stdset="0">
+                <number>4</number>
+               </property>
+               <property name="MidiControl" stdset="0">
+                <number>6</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="ButtonControl" name="ButtonControl_10">
+             <property name="MidiChannel" stdset="0">
+              <number>4</number>
+             </property>
+             <property name="MidiControl" stdset="0">
+              <number>52</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ButtonControl" name="ButtonControl_11">
+             <property name="MidiChannel" stdset="0">
+              <number>4</number>
+             </property>
+             <property name="MidiControl" stdset="0">
+              <number>54</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ButtonControl" name="ButtonControl_13">
+             <property name="MidiChannel" stdset="0">
+              <number>4</number>
+             </property>
+             <property name="MidiControl" stdset="0">
+              <number>53</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ButtonControl" name="ButtonControl_12">
+             <property name="MidiChannel" stdset="0">
+              <number>4</number>
+             </property>
+             <property name="MidiControl" stdset="0">
+              <number>51</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ButtonControl" name="ButtonControl_9">
+             <property name="MidiChannel" stdset="0">
+              <number>4</number>
+             </property>
+             <property name="MidiControl" stdset="0">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="FaderControl" name="FaderControl_9">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetNoConstraint</enum>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="1" column="4">
+        <widget class="ButtonControl" name="ButtonControl_8">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>65</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="ButtonControl" name="ButtonControl">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>61</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="1">
+        <widget class="ButtonControl" name="ButtonControl_3">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>58</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="ButtonControl" name="ButtonControl_4">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>59</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="ButtonControl" name="ButtonControl_2">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>60</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="ButtonControl" name="ButtonControl_5">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>62</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="ButtonControl" name="ButtonControl_6">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>63</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="ButtonControl" name="ButtonControl_7">
+         <property name="MidiChannel" stdset="0">
+          <number>4</number>
+         </property>
+         <property name="MidiControl" stdset="0">
+          <number>64</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="CrossFaderControl" name="CrossFaderControl">
+       <property name="MidiChannel" stdset="0">
+        <number>4</number>
+       </property>
+       <property name="MidiControl" stdset="0">
+        <number>48</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Expanding</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>50</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KnobControl</class>
+   <extends>QWidget</extends>
+   <header>knobcontrol.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FaderControl</class>
+   <extends>QWidget</extends>
+   <header>FaderControl.h</header>
+  </customwidget>
+  <customwidget>
+   <class>CrossFaderControl</class>
+   <extends>QWidget</extends>
+   <header>CrossFaderControl.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ButtonControl</class>
+   <extends>QWidget</extends>
+   <header>ButtonControl.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

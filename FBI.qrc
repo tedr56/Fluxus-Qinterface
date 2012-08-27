@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>controllers/KorgMicrocontrol.ui</file>
+        <file>controllers/Bitstream3X.ui</file>
+        <file>controllers/VmxVJ.ui</file>
+        <file>data/Logic8_vsrmx_prpl_by_Duro500.png</file>
+        <file>data/led_green.svg</file>
+        <file>data/led_grey.svg</file>
+        <file>data/osc_logo_revised2.png</file>
+        <file>data/DnD.jpg</file>
+        <file>data/midi_logo.png</file>
+    </qresource>
+</RCC>
