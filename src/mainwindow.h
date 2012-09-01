@@ -29,7 +29,9 @@ private slots:
     void setPreferences();
     void setMultipleTable();
     void openRecentFile();
-    void on_DeckWidget_currentChanged(QWidget *arg1);
+    void on_actionAdd_Media_Deck_activated();
+    void on_actionAdd_Mime_Deck_activated();
+
 protected:
 
 private:

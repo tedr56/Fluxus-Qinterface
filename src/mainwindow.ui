@@ -30,7 +30,6 @@
     <property name="title">
      <string>View</string>
     </property>
-    <addaction name="actionShow_Medias_Dock"/>
     <addaction name="actionShow_Decks_Dock"/>
     <addaction name="actionShow_Side_A_Dock"/>
     <addaction name="actionShow_Side_B_Dock"/>
@@ -61,7 +60,17 @@
     <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
+   <widget class="QMenu" name="menuAdd">
+    <property name="title">
+     <string>Add</string>
+    </property>
+    <addaction name="actionAdd_Media_Deck"/>
+    <addaction name="actionAdd_Mime_Deck"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_Side_Dock"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuAdd"/>
    <addaction name="menuView"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -122,7 +131,7 @@
         <bool>true</bool>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <property name="movable">
         <bool>true</bool>
@@ -147,30 +156,6 @@
         </property>
         <attribute name="title">
          <string>Deck 2</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="Visuals">
-        <property name="acceptDrops">
-         <bool>true</bool>
-        </property>
-        <attribute name="title">
-         <string>Visuals</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="FXs">
-        <property name="acceptDrops">
-         <bool>true</bool>
-        </property>
-        <attribute name="title">
-         <string>FXs</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="DeckAddTab">
-        <attribute name="title">
-         <string notr="true">+</string>
-        </attribute>
-        <attribute name="toolTip">
-         <string>Add a new Deck Tab</string>
         </attribute>
        </widget>
       </widget>
@@ -225,17 +210,6 @@
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
-  <action name="actionShow_Medias_Dock">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Show Medias Dock</string>
-   </property>
-  </action>
   <action name="actionShow_Decks_Dock">
    <property name="checkable">
     <bool>true</bool>
@@ -317,6 +291,21 @@
     <string>Preferences</string>
    </property>
   </action>
+  <action name="actionAdd_Media_Deck">
+   <property name="text">
+    <string>Add Media Deck</string>
+   </property>
+  </action>
+  <action name="actionAdd_Mime_Deck">
+   <property name="text">
+    <string>Add Mime Deck</string>
+   </property>
+  </action>
+  <action name="actionAdd_Side_Dock">
+   <property name="text">
+    <string>Add Side Dock</string>
+   </property>
+  </action>
   <zorder>DeckDock</zorder>
   <zorder>SideBDock</zorder>
   <zorder>SideADock</zorder>
@@ -330,6 +319,10 @@
    <extends>QTabWidget</extends>
    <header>droptabwidget.h</header>
    <container>1</container>
+   <slots>
+    <slot>addMediaTab()</slot>
+    <slot>addMimeTab()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>

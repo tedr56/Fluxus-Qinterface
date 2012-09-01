@@ -83,10 +83,8 @@ void MainWindow::initUi()
     m_dialStyle = new ClassicStyle();
     m_dialStyle->setParent(this);
 
-    setScrollDock(ui->Deck1);
-    setScrollDock(ui->Deck2);
-    setScrollDock(ui->Visuals);
-    setScrollDock(ui->FXs);
+//    setScrollDock(ui->Deck1);
+//    setScrollDock(ui->Deck2);
     setScrollDock(ui->SideADockContents);
     setScrollDock(ui->SideBDockContents);
     //Apply settings
@@ -128,6 +126,7 @@ void MainWindow::initMimeConf()
         if (CheckResult.state() == QScriptSyntaxCheckResult::Valid){
             qDebug() << engine.evaluate(ScriptContent).toString();
         } else {
+            qDebug() << "Syntax Error";
             qDebug() << CheckResult.state();
         }
     }
@@ -166,7 +165,7 @@ void MainWindow::setPreferences()
         initOscConnections();
     if (m_configDialog->MidiChanged())
         initMidiConnections();
-    if (m_configDialog->MimeChanged())
+    //if (m_configDialog->MimeChanged())
         initMimeConf();
     m_configDialog->ResetChanged();
 }
@@ -318,14 +317,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_DeckWidget_currentChanged(QWidget *SelectedTab)
+void MainWindow::on_actionAdd_Media_Deck_activated()
 {
-    if (SelectedTab == ui->DeckAddTab)
-    {
-        QWidget *newTab = new QWidget(ui->DeckWidget);
-        QString newTabName = QString("Deck %1").arg(ui->DeckWidget->count());
-        ui->DeckWidget->insertTab(ui->DeckWidget->count() - 1, newTab, newTabName);
-        ui->DeckWidget->setCurrentIndex(ui->DeckWidget->count() - 2);
-        setScrollDock(newTab);
-    }
+    ui->DeckWidget->addDeckTab();
+}
+
+void MainWindow::on_actionAdd_Mime_Deck_activated()
+{
+    ui->DeckWidget->addMimeTab();
 }
