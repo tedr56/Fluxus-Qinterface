@@ -30,7 +30,6 @@ SOURCES +=\
     src/mediacontrol.cpp \
     src/mediawidget.cpp \
     src/droptabwidget.cpp \
-    src/dropdockwidget.cpp \
     src/configdialogpages.cpp \
     src/configdialog.cpp
 
@@ -57,7 +56,6 @@ HEADERS  += \
     src/mediacontrol.h \
     src/mediawidget.h \
     src/droptabwidget.h \
-    src/dropdockwidget.h \
     src/configdialogpages.h \
     src/configdialog.h
 
