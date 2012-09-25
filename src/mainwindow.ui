@@ -65,7 +65,6 @@
      <string>Add</string>
     </property>
     <addaction name="actionAdd_Media_Deck"/>
-    <addaction name="actionAdd_Mime_Deck"/>
     <addaction name="separator"/>
     <addaction name="actionAdd_Side_Dock"/>
    </widget>
@@ -210,6 +209,15 @@
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
+  <widget class="QDockWidget" name="ParametersDock">
+   <property name="windowTitle">
+    <string>Parameters</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="ParametersDockWidget"/>
+  </widget>
   <action name="actionShow_Decks_Dock">
    <property name="checkable">
     <bool>true</bool>
@@ -311,6 +319,7 @@
   <zorder>SideADock</zorder>
   <zorder>TableDock</zorder>
   <zorder>MixerDock</zorder>
+  <zorder>ParametersDock</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

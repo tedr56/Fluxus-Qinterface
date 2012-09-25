@@ -85,6 +85,9 @@ void MainWindow::initUi()
 
 //    setScrollDock(ui->Deck1);
 //    setScrollDock(ui->Deck2);
+    setScrollDock(ui->ParametersDockWidget);
+    ui->DeckWidget->getScrollWidget(0)->setParametersDock(ui->ParametersDockWidget);
+    ui->DeckWidget->getScrollWidget(1)->setParametersDock(ui->ParametersDockWidget);
     setScrollDock(ui->SideADockContents);
     setScrollDock(ui->SideBDockContents);
     //Apply settings
@@ -148,12 +151,12 @@ void MainWindow::setScrollDock(QWidget *Dock)
     MediaWidget* wrapper = new MediaWidget(Scroll);
     Scroll->setWidget(wrapper);
     Scroll->setWidgetResizable(true);
-    for(int i = 0; i < 2; i++)
-    {
-        ButtonControl* Button = new ButtonControl(wrapper);
-        Button->setMinimumSize(60,60);
-        wrapper->layout()->addWidget(Button);
-    }
+//    for(int i = 0; i < 2; i++)
+//    {
+//        ButtonControl* Button = new ButtonControl(wrapper);
+//        Button->setMinimumSize(60,60);
+//        wrapper->layout()->addWidget(Button);
+//    }
 }
 
 void MainWindow::setPreferences()
@@ -216,7 +219,7 @@ void MainWindow::OpenTable(QFile &file)
             MultiControlInterface *widget = qobject_cast<MultiControlInterface *>(W);
             if ( widget != NULL )
             {
-                //widget->setStyle(m_dialStyle);
+                widget->setStyle(m_dialStyle);
                 AddController(widget);
             }
         }
@@ -320,9 +323,4 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionAdd_Media_Deck_activated()
 {
     ui->DeckWidget->addDeckTab();
-}
-
-void MainWindow::on_actionAdd_Mime_Deck_activated()
-{
-    ui->DeckWidget->addMimeTab();
 }

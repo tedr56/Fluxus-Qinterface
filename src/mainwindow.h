@@ -30,7 +30,6 @@ private slots:
     void setMultipleTable();
     void openRecentFile();
     void on_actionAdd_Media_Deck_activated();
-    void on_actionAdd_Mime_Deck_activated();
 
 protected:
 
