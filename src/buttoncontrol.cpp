@@ -1,8 +1,10 @@
+#include <QLabel>
 #include "buttoncontrol.h"
 #include <QDebug>
 
 ButtonControl::ButtonControl ( QWidget *Parent )
     : MultiControl(Parent),
+//      ui(new Ui::ButtonWidget),
       m_velocity(127)
 {
     setupUi(this);

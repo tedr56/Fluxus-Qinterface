@@ -5,9 +5,8 @@
 #include "multicontrol.h"
 #include "ui_buttoncontrol.h"
 
-class MultiControl;
 
-class ButtonControl : public MultiControl, private Ui::ButtonControl
+class ButtonControl : public MultiControl, protected Ui::ButtonWidget
 {
     Q_OBJECT
     Q_PROPERTY( bool Checkable  READ getCheckable WRITE setCheckable  )
@@ -16,7 +15,6 @@ public:
     ButtonControl(QWidget *Parent = 0);
     void setStyle(QStyle *);
     bool getCheckable();
-
 public slots:
     void Toggle(int);
     void ButtonToggled(bool);
@@ -26,6 +24,8 @@ public slots:
 signals:
     void ButtonMoved(int);
 
+//protected:
+//    Ui::ButtonWidget *ui;
 private:
     uint m_velocity;
 
