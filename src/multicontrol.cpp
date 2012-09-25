@@ -12,7 +12,8 @@ MultiControl::MultiControl(QWidget *parent) :
     m_midiserverobject(0), m_midiclientobject(0),
     m_oscserverobject(0),
     m_midiserver_set(false), m_midiclient_set(false),
-    m_oscserver_set(false), m_oscclient_set(false)
+    m_oscserver_set(false), m_oscclient_set(false),
+    m_mimeType("multicontrol/multicontrol"), m_inputMime("multicontrol/parameter"), m_acceptedDrops(Qt::CopyAction)
 {
     setMidiInfo();
 }
@@ -95,6 +96,11 @@ void MultiControl::setMidiInfo()
     }
 }
 
+void MultiControl::setMimeType(QString newMime)
+{
+    m_mimeType = newMime;
+}
+
 MidiInfo *MultiControl::getMidiInfo()
 {
     return m_midiinfo;
@@ -154,6 +160,11 @@ void MultiControl::setOscObject(QList<QOscClient*> OscList)
             m_oscclient_set = true;
         }
     }
+}
+
+QString MultiControl::mimeType()
+{
+    return m_mimeType;
 }
 
 void MultiControl::setOutputMode(ControlOutputTypes outMode)
@@ -217,6 +228,69 @@ int MultiControl::getValue()
 void MultiControl::setValue(int Value)
 {
     m_value = Value;
+}
+
+
+QStringList MultiControl::checkMimeType(QStringList mimeTypes)
+{
+    QStringList validMime;
+    foreach(QString mime, mimeTypes){
+        if (m_inputMime.contains(mime)){
+            validMime.append(mime);
+        }
+    }
+    return validMime;
+}
+
+bool MultiControl::checkParentDrop(QDropEvent* event)
+{
+    if (event->source()->parent() == parent()){
+        event->setDropAction(Qt::MoveAction);
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+void MultiControl::dragEnterEvent(QDragEnterEvent* event)
+{
+    if (checkMimeType(event->mimeData()->formats()).count()){
+        if (checkParentDrop(event)){
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void MultiControl::dragMoveEvent(QDragMoveEvent *event)
+{
+    if (checkMimeType(event->mimeData()->formats()).count()){
+        if (checkParentDrop(event)){
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void MultiControl::dropEvent(QDropEvent *event)
+{
+    if (checkMimeType(event->mimeData()->formats()).count()){
+
+        if (checkParentDrop(event)){
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
 }
 
 MultiControl::~MultiControl()

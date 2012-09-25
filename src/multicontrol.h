@@ -2,6 +2,7 @@
 #define MULTICONTROL_H
 
 #include <QWidget>
+#include <QDragEnterEvent>
 #include "qosctypes.h"
 #include "qoscserver.h"
 #include "qoscclient.h"
@@ -10,6 +11,9 @@
 #include "qmidiclient.h"
 #include "mididefs.h"
 #include "multicontrolinterface.h"
+
+class QDragEnterEvent;
+class QDropEvent;
 
 class MultiControl : public QWidget, public MultiControlInterface
 {
@@ -54,6 +58,7 @@ public:
     ControlOutputTypes      getOutputMode()         const { return m_outputMode;    }
     const QString          &getOscOutputAddress()   const { return m_oscoutAddress; }
 
+    //MultiControl *Copy();
 public slots:
     void setInputMode(ControlInputType typeMode);
     void setOscMin(double OscMin);
@@ -75,6 +80,7 @@ public slots:
     void setOscObject(QOscServer*);
     void setOscObject(QList<QOscClient*>);
 
+    QString mimeType();
 signals:
     void WidgetUpdate(int Value);
     void ControllerMoved(int);
@@ -92,6 +98,10 @@ protected:
 
     void setMidiInfo();
 
+    void setMimeType(QString);
+    void dragEnterEvent(QDragEnterEvent* event);
+    void dragMoveEvent(QDragMoveEvent *event);
+    void dropEvent(QDropEvent *event);
 private:
     ControlInputType m_inputMode;
     ControlInputType m_midiinputmode;
@@ -117,6 +127,12 @@ private:
     bool m_midiclient_set;
     bool m_oscserver_set;
     bool m_oscclient_set;
+
+    QString m_mimeType;
+    QStringList m_inputMime;
+    Qt::DropActions m_acceptedDrops;
+    QStringList checkMimeType(QStringList);
+    bool checkParentDrop(QDropEvent *event);
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(MultiControl::ControlOutputTypes)
