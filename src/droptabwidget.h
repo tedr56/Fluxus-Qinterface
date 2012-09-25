@@ -4,6 +4,7 @@
 #include <QTabWidget>
 #include <QTabBar>
 #include <QTimer>
+#include "mediawidget.h"
 
 class DropTabBar : public QTabBar
 {
@@ -16,6 +17,8 @@ signals:
 
 public slots:
     void DropTabTimeOut();
+    void showContextMenu(const QPoint &);
+    void renameTab();
 
 protected:
     void dragEnterEvent(QDragEnterEvent*);
@@ -36,6 +39,18 @@ class DropTabWidget : public QTabWidget
 public:
     DropTabWidget(QWidget* parent = 0);
 
+    int addTab(const QString &);
+    int addTab(QWidget *widget, const QString &);
+    int addTab(QWidget *widget, const QIcon &icon, const QString &label);
+
+    MediaWidget *getScrollWidget(int);
+public slots:
+    int addDeckTab();
+
+private:
+    QList<MediaWidget*> m_mimeList;
+    void setScrollbar(int);
+    void renameTab(int);
 };
 
 #endif
