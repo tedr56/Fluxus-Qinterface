@@ -9,5 +9,7 @@
         <file>data/osc_logo_revised2.png</file>
         <file>data/DnD.jpg</file>
         <file>data/midi_logo.png</file>
+        <file>data/FluxusBros.png</file>
+        <file>data/ResolumeLogo.jpg</file>
     </qresource>
 </RCC>
