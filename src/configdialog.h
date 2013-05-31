@@ -44,6 +44,7 @@
 #include <QWidget>
 #include <QDialog>
 #include "configdialogpages.h"
+#include "configfluxus.h"
 
 class QListWidget;
 class QListWidgetItem;
@@ -55,7 +56,7 @@ class ConfigDialog : public QDialog
 
     public:
         ConfigDialog(QWidget *parent = 0);
-
+        bool FlxHeadsChanged();
         bool OscChanged();
         bool MidiChanged();
         bool MimeChanged();
@@ -70,6 +71,7 @@ class ConfigDialog : public QDialog
         QStackedWidget *pagesWidget;
         OscConnections *m_oscPage;
         MimeTypes *m_mimePage;
+        configFluxus *m_fluxusConfig;
 };
 
 

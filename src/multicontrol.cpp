@@ -18,6 +18,18 @@ MultiControl::MultiControl(QWidget *parent) :
     setMidiInfo();
 }
 
+MultiControl::~MultiControl()
+{
+    delete m_midiserverobject;
+    delete m_midiclientobject;
+    delete m_oscserverobject;
+    foreach(PathObject* Path, m_oscclientsobject)
+    {
+        delete Path;
+    }
+    delete m_midiinfo;
+}
+
 void MultiControl::setInputMode(ControlInputType typeMode)
 {
     m_inputMode = typeMode;
@@ -162,6 +174,16 @@ void MultiControl::setOscObject(QList<QOscClient*> OscList)
     }
 }
 
+void MultiControl::setStyle(QStyle *s)
+{
+    QWidget::setStyle(s);
+}
+
+QStyle *MultiControl::style()
+{
+    return QWidget::style();
+}
+
 QString MultiControl::mimeType()
 {
     return m_mimeType;
@@ -293,14 +315,8 @@ void MultiControl::dropEvent(QDropEvent *event)
     }
 }
 
-MultiControl::~MultiControl()
-{
-    delete m_midiserverobject;
-    delete m_midiclientobject;
-    delete m_oscserverobject;
-    foreach(PathObject* Path, m_oscclientsobject)
-    {
-        delete Path;
-    }
-    delete m_midiinfo;
-}
+
+//virtual MultiControl::~MultiControlInterface()
+//{
+////    ~MultiControl();
+//}

@@ -11,7 +11,7 @@ ButtonControl::ButtonControl ( QWidget *Parent )
     connect(this, SIGNAL(WidgetUpdate(int)), this, SLOT(Toggle(int)));
     connect(MultiButton,SIGNAL(pressed()), this, SLOT(ButtonToggled()));
     connect(MultiButton,SIGNAL(released()), this, SLOT(ButtonToggled()));
-    connect(this, SIGNAL(ButtonMoved(int)), this, SLOT(WidgetMoved(int)));    
+    connect(this, SIGNAL(ButtonMoved(int)), this, SLOT(WidgetMoved(int)));
 }
 
 void ButtonControl::ButtonToggled()

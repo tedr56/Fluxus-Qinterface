@@ -43,17 +43,21 @@
 
 ConfigDialog::ConfigDialog(QWidget *parent) : QDialog(parent)
 {
+    setMinimumSize(800, 400);
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     contentsWidget = new QListWidget;
     contentsWidget->setViewMode(QListView::IconMode);
     contentsWidget->setIconSize(QSize(96, 84));
     contentsWidget->setMovement(QListView::Static);
-    contentsWidget->setMaximumWidth(128);
+    contentsWidget->setMinimumWidth(150);
+    contentsWidget->setMaximumWidth(150);
     contentsWidget->setSpacing(12);
 
     m_oscPage = new OscConnections;
     m_mimePage = new MimeTypes;
+    m_fluxusConfig = new configFluxus(this);
     pagesWidget = new QStackedWidget;
+    pagesWidget->addWidget(m_fluxusConfig);
     pagesWidget->addWidget(m_mimePage);
     pagesWidget->addWidget(m_oscPage);
     //pagesWidget->addWidget(m_midiPage);
@@ -85,18 +89,23 @@ ConfigDialog::ConfigDialog(QWidget *parent) : QDialog(parent)
 
 void ConfigDialog::createIcons()
 {
+    QListWidgetItem *FlxButton = new QListWidgetItem(contentsWidget);
+    FlxButton->setText(tr("FluxusBros"));
+    FlxButton->setIcon(QIcon(":/data/FluxusBros.png"));
+    FlxButton->setTextAlignment(Qt::AlignHCenter);
+    FlxButton->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+
     QListWidgetItem *queryButton = new QListWidgetItem(contentsWidget);
-    queryButton->setIcon(QIcon(":/data/DnD.jpg"));
     queryButton->setText(tr("Mime"));
+    queryButton->setIcon(QIcon(":/data/DnD.jpg"));
     queryButton->setTextAlignment(Qt::AlignHCenter);
     queryButton->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
     QListWidgetItem *updateButton = new QListWidgetItem(contentsWidget);
-    updateButton->setIcon(QIcon(":/data/osc_logo_revised2.png"));
     updateButton->setText(tr("Osc"));
+    updateButton->setIcon(QIcon(":/data/osc_logo_revised2.png"));
     updateButton->setTextAlignment(Qt::AlignHCenter);
     updateButton->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
-
 
     QListWidgetItem *configButton = new QListWidgetItem(contentsWidget);
     configButton->setIcon(QIcon(":/data/midi_logo.png"));
@@ -115,6 +124,11 @@ void ConfigDialog::changePage(QListWidgetItem *current, QListWidgetItem *previou
         current = previous;
 
     pagesWidget->setCurrentIndex(contentsWidget->row(current));
+}
+
+bool ConfigDialog::FlxHeadsChanged()
+{
+    return m_fluxusConfig->changed;
 }
 
 bool ConfigDialog::OscChanged()

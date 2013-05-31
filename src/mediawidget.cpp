@@ -18,13 +18,50 @@ void StackHBoxLayout::addWidget(QWidget *w, int stretch = 0 , Qt::Alignment alig
     insertWidget(count() - 1, w, stretch, align);
 }
 
-MediaWidget::MediaWidget(QWidget *parent) : QWidget(parent)
+MediaWrapper::MediaWrapper(QWidget *parent) : QWidget(parent)
 {
-    m_mimeTypes = QStringList("fluxus/visual");
-    m_layout = new StackHBoxLayout(this);
+    setAcceptDrops(true);
+}
+
+void MediaWrapper::dragEnterEvent(QDragEnterEvent *event)
+{
+    event->ignore();
+}
+
+void MediaWrapper::dragMoveEvent(QDragMoveEvent *event)
+{
+    event->ignore();
+}
+
+void MediaWrapper::dropEvent(QDropEvent *event)
+{
+    event->ignore();
+}
+
+MediaWidget::MediaWidget(QWidget *parent) : QWidget(parent),
+    m_parametersDock(0)
+{
+    if (! layout())
+    {
+        QHBoxLayout* DockLayout = new QHBoxLayout(this);
+        DockLayout->setContentsMargins(0,0,0,0);
+        DockLayout->setSpacing(0);
+        setLayout(DockLayout);
+    }
+    QScrollArea* Scroll = new QScrollArea(this);
+    layout()->addWidget(Scroll);
+    Scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    Scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    QWidget* wrapper = new QWidget(Scroll);
+    Scroll->setWidget(wrapper);
+    Scroll->setWidgetResizable(true);
+    m_layout = new StackHBoxLayout(wrapper);
+    wrapper->setLayout(m_layout);
+    wrapper->setAcceptDrops(true);
     setAcceptDrops(true);
     setBackgroundRole(QPalette::Dark);
-    setLayout(m_layout);
+
+    m_mimeTypes = QStringList("fluxus/visual");
 }
 
 void MediaWidget::setMimeType(QStringList Type)
@@ -182,3 +219,4 @@ int DeckWidget::addFluxusMedia(QDropEvent *event)
     }
     return addedMedia;
 }
+

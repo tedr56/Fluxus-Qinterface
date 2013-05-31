@@ -10,6 +10,9 @@
     <height>390</height>
    </rect>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
   <property name="windowTitle">
    <string>FluxusBros Interface</string>
   </property>
@@ -80,18 +83,10 @@
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="QWidget" name="SideADockContents">
+   <widget class="MediaWidget" name="SideADockContents">
     <property name="acceptDrops">
      <bool>true</bool>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <property name="margin">
-      <number>0</number>
-     </property>
-    </layout>
    </widget>
   </widget>
   <widget class="QDockWidget" name="DeckDock">
@@ -125,17 +120,17 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="DropTabWidget" name="DeckWidget">
+      <widget class="DropTabWidget" name="DecksWidget">
        <property name="acceptDrops">
         <bool>true</bool>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="movable">
         <bool>true</bool>
        </property>
-       <widget class="QWidget" name="Deck1">
+       <widget class="DeckWidget" name="Deck1">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -169,7 +164,7 @@
    <attribute name="dockWidgetArea">
     <number>2</number>
    </attribute>
-   <widget class="QWidget" name="SideBDockContents">
+   <widget class="MediaWidget" name="SideBDockContents">
     <property name="acceptDrops">
      <bool>true</bool>
     </property>
@@ -332,6 +327,18 @@
     <slot>addMediaTab()</slot>
     <slot>addMimeTab()</slot>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>MediaWidget</class>
+   <extends>QWidget</extends>
+   <header>mediawidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DeckWidget</class>
+   <extends>QWidget</extends>
+   <header>mediawidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

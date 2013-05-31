@@ -16,12 +16,24 @@ public:
     void addWidget(QWidget *, int stretch, Qt::Alignment alignment);
 };
 
+class MediaWrapper : public QWidget
+{
+    Q_OBJECT
+public:
+    MediaWrapper(QWidget* parent = 0);
+protected:
+    void dragEnterEvent(QDragEnterEvent* event);
+    void dragMoveEvent(QDragMoveEvent *event);
+    void dropEvent(QDropEvent *event);
+    void dropAction(QDropEvent *event);
+};
+
 class MediaWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    MediaWidget(QWidget* parent);
+    MediaWidget(QWidget* parent = 0);
     QStringList MimeType();
     void setParametersDock(QWidget*);
 protected:
@@ -52,7 +64,7 @@ class DeckWidget : public MediaWidget
 {
     Q_OBJECT
 public:
-    DeckWidget(QWidget* parent);
+    DeckWidget(QWidget* parent = 0);
     QStringList MimeType();
 protected:
     void dropEvent(QDropEvent *event);

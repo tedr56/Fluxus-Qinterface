@@ -39,6 +39,7 @@ class MultiControl : public QWidget, public MultiControlInterface
 public:
     MultiControl(QWidget *parent = 0);
     ~MultiControl();
+//    virtual ~MultiControl();
 
     enum ControlInputType  { MidiCC = STATUS_CTLCHG, MidiNote = STATUS_NOTEON, Osc};
     enum ControlOutputType { OutMidi = 0x01 , OutOsc = 0x02};
@@ -79,6 +80,9 @@ public slots:
     void setMidiObject(QMidiClient*);
     void setOscObject(QOscServer*);
     void setOscObject(QList<QOscClient*>);
+
+    void setStyle(QStyle *);
+    QStyle *style();
 
     QString mimeType();
 signals:

@@ -14,7 +14,11 @@ public:
     QString mediaName();
 signals:
     void startDragging();
-    void clicking();
+    void activated();
+    void deactivated();
+    void selected();
+    void rightSelected();
+    void midSelected();
 protected slots:
     void dragging();
 protected:
@@ -36,6 +40,10 @@ class FluxusVisual : public MediaControl
 public:
     FluxusVisual(QFileInfo fileInfo, QWidget* parent, int defValues = 0);
     FluxusVisual(QString pathInfo, QWidget* parent, int defValues = 0);
+public slots:
+//    void showLevels();
+//    void Launch();
+//    void Stop();
 protected slots:
     void dragging();
 protected:

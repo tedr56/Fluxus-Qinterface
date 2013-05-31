@@ -111,21 +111,21 @@ int DropTabWidget::addDeckTab()
 int DropTabWidget::addTab(const QString &label)
 {
     int tabNum = QTabWidget::addTab(new QWidget(this), label);
-    setScrollbar(tabNum);
+//    setScrollbar(tabNum);
     return tabNum;
 }
 
 int DropTabWidget::addTab(QWidget *widget, const QString &tabName)
 {
     int tabNum = QTabWidget::addTab(widget, tabName);
-    setScrollbar(tabNum);
+//    setScrollbar(tabNum);
     return tabNum;
 }
 
 int DropTabWidget::addTab(QWidget *widget, const QIcon &icon, const QString &label)
 {
     int tabNum = QTabWidget::addTab(widget, icon, label);
-    setScrollbar(tabNum);
+//    setScrollbar(tabNum);
     return tabNum;
 }
 

@@ -35,6 +35,7 @@
 #include <QtGui/QStyleOptionSlider>
 #include <QtSvg/QSvgRenderer>
 #include <qmath.h>
+#include <QDebug>
 
 #define DIAL_MIN (0.25 * M_PI)
 #define DIAL_MAX (1.75 * M_PI)
@@ -58,14 +59,29 @@ static void drawTick(QPainter *p, float angle, int size, bool internal)
 	}
 }
 
-void
-ClassicStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex *opt, QPainter *p, const QWidget *widget) const
+void ClassicStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex *opt, QPainter *p, const QWidget *widget) const
 {
-    if (cc != QStyle::CC_Dial) {
+//    if (cc != QStyle::CC_Dial) {
+//        QCommonStyle::drawComplexControl(cc, opt, p, widget);
+//        return;
+//    }
+    if (cc == QStyle::CC_Dial){
+        drawDial(opt, p);
+//    } else if (cc == QStyle::CC_Slider) {
+//        drawFader(opt, p);
+//        QCommonStyle::drawComplexControl(cc,opt,p,widget);
+    } else {
         QCommonStyle::drawComplexControl(cc, opt, p, widget);
-        return;
     }
+}
 
+void ClassicStyle::drawControl ( ControlElement element, const QStyleOption * opt, QPainter * p, const QWidget * widget) const
+{
+    QCommonStyle::drawControl(element, opt, p, widget);
+}
+
+void ClassicStyle::drawDial(const QStyleOptionComplex *opt, QPainter *p) const
+{
     const QStyleOptionSlider *dial = qstyleoption_cast<const QStyleOptionSlider *>(opt);
     if (dial == NULL)
         return;
@@ -97,16 +113,16 @@ ClassicStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex *o
     pen.setCapStyle(Qt::FlatCap);
     p->setPen(pen);
 
-    QRadialGradient gradient(size/2, size/2, size-indent, size/2-indent, size/2-indent);
-    gradient.setColorAt(0, knobColor.light());
-    gradient.setColorAt(1, knobColor.dark());
-    p->setBrush(gradient);
-    p->drawEllipse(indent, indent, width-2*indent, width-2*indent);
+//    QRadialGradient gradient(size/2, size/2, size-indent, size/2-indent, size/2-indent);
+//    gradient.setColorAt(0, knobColor.light());
+//    gradient.setColorAt(1, knobColor.dark());
+//    p->setBrush(gradient);
+//    p->drawEllipse(indent, indent, width-2*indent, width-2*indent);
 
     // The bright metering bit...
 
     c = meterColor;
-    pen.setColor(c);
+    pen.setColor(QColor(161,255,52));
     pen.setWidth(indent);
     p->setPen(pen);
 
@@ -118,15 +134,15 @@ ClassicStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex *o
     // Tick notches...
 
     if (dial->subControls & QStyle::SC_DialTickmarks) {
-    	//	std::cerr << "Notches visible" << std::endl;
-    	pen.setColor(pal.dark().color());
-    	pen.setWidth(scale);
-    	p->setPen(pen);
-    	for (int i = 0; i < numTicks; ++i) {
+        //	std::cerr << "Notches visible" << std::endl;
+        pen.setColor(pal.dark().color());
+        pen.setWidth(scale);
+        p->setPen(pen);
+        for (int i = 0; i < numTicks; ++i) {
             int div = numTicks;
             if (div > 1) --div;
             drawTick(p, DIAL_MIN + (DIAL_MAX - DIAL_MIN) * i / div, width, true);
-    	}
+        }
     }
 
     // Shadowing...
@@ -137,30 +153,30 @@ ClassicStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex *o
     // Knob shadow...
 
     int shadowAngle = -720;
-    c = knobColor.dark();
-    for (int arc = 120; arc < 2880; arc += 240)
-    {
-        pen.setColor(c);
-        p->setPen(pen);
-        p->drawArc(indent, indent, width-2*indent, width-2*indent, shadowAngle
-                        + arc, 240);
-        p->drawArc(indent, indent, width-2*indent, width-2*indent, shadowAngle
-                        - arc, 240);
-        c = c.light(110);
-    }
+//    c = knobColor.dark();
+//    for (int arc = 120; arc < 2880; arc += 240)
+//    {
+//        pen.setColor(c);
+//        p->setPen(pen);
+//        p->drawArc(indent, indent, width-2*indent, width-2*indent, shadowAngle
+//                        + arc, 240);
+//        p->drawArc(indent, indent, width-2*indent, width-2*indent, shadowAngle
+//                        - arc, 240);
+//        c = c.light(110);
+//    }
 
     // Scale shadow...
 
     shadowAngle = 2160;
     c = pal.dark().color();
     for (int arc = 120; arc < 2880; arc += 240) {
-    	pen.setColor(c);
-    	p->setPen(pen);
-    	p->drawArc(scale/2, scale/2,
-    			width-scale, width-scale, shadowAngle + arc, 240);
-    	p->drawArc(scale/2, scale/2,
-    			width-scale, width-scale, shadowAngle - arc, 240);
-    	c = c.light(108);
+        pen.setColor(QColor(161,255,52));
+        p->setPen(pen);
+        p->drawArc(scale/2, scale/2,
+                width-scale, width-scale, shadowAngle + arc, 240);
+        p->drawArc(scale/2, scale/2,
+                width-scale, width-scale, shadowAngle - arc, 240);
+        c = c.light(108);
     }
 
     // Undraw the bottom part...
@@ -169,7 +185,7 @@ ClassicStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex *o
     pen.setWidth(scale * 4);
     p->setPen(pen);
     p->drawArc(scale/2, scale/2,
-		  width-scale, width-scale, -45 * 16, -90 * 16);
+          width-scale, width-scale, -45 * 16, -90 * 16);
 
     // Pointer notch...
 
@@ -184,12 +200,56 @@ ClassicStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex *o
     float y = hyp + len * qCos(angle);
 
     c = pal.dark().color();
-    pen.setColor((dial->state & State_Enabled) ? c.dark(130) : c);
+    pen.setColor((dial->state & State_HasFocus) ? QColor(161,255,52) : c);
     pen.setWidth(scale * 2);
     p->setPen(pen);
     p->drawLine(int(x0), int(y0), int(x), int(y));
 
     // done
+    p->restore();
+
+}
+
+void ClassicStyle::drawFader(const QStyleOptionComplex *opt, QPainter *p) const
+{
+    const QStyleOptionSlider *fader = qstyleoption_cast<const QStyleOptionSlider *>(opt);
+    if (fader == NULL)
+        return;
+    int Value = fader->sliderValue;
+    int Size = (fader->rect.height() > fader->rect.width() ? fader->rect.height() : fader->rect.width());
+    float CursorRatio = float(Size) / float(fader->maximum);
+    if (fader->orientation & Qt::Vertical)
+        CursorRatio *= -1;
+    int CursorPosition = Value * CursorRatio;
+    QPen pen;
+    QColor color(161,255,52);
+    color.setAlpha(100);
+    QBrush brush(color, Qt::SolidPattern);
+    pen.setBrush(brush);
+    p->save();
+    p->setRenderHint(QPainter::Antialiasing, true);
+    p->translate(0, fader->rect.height());
+    p->setPen(pen);
+    p->setBrush(brush);
+    //p->drawRoundedRect(0, 0, 10, 30, 3, 3);
+    //p->drawRect(1,1,10,10);
+    if (fader->orientation & Qt::Vertical)
+        p->drawRect(0,0, fader->rect.width(), CursorPosition);
+    else
+        p->drawRect(0,0, CursorPosition, fader->rect.height());
+    color.setAlpha(255);
+    brush.setColor(color);
+    p->setBrush(brush);
+    if (fader->orientation & Qt::Vertical)
+        p->drawRect(0,CursorPosition - 1 , fader->rect.width(), 3);
+    else
+        p->drawRect(CursorPosition - 1, 0 , 3, fader->rect.height());
+    qDebug() << "";
+    qDebug() << ((fader->orientation & Qt::Vertical) ? fader->rect.height() : fader->rect.width());
+    qDebug() << Value;
+    qDebug() << fader->maximum;
+    qDebug() << CursorRatio;
+    qDebug() << CursorPosition;
     p->restore();
 }
 

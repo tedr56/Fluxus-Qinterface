@@ -37,7 +37,7 @@
 class ClassicStyle : public QCommonStyle
 {
 public:
-	ClassicStyle() {};
+    ClassicStyle() {setObjectName("ClassicStyle");};
 	virtual ~ClassicStyle() {};
     virtual void drawPrimitive( PrimitiveElement pe, const QStyleOption *opt,
                                 QPainter *p, const QWidget *w ) const;
@@ -45,8 +45,15 @@ public:
 	                                 const QStyleOptionComplex *opt,
 	                                 QPainter *p,
                             		 const QWidget *widget = 0) const;
+    virtual void drawControl ( ControlElement element, const QStyleOption * opt,
+                               QPainter * p, const QWidget * widget = 0 ) const;
 	virtual int pixelMetric( PixelMetric metric, const QStyleOption* option=0,
 	                         const QWidget *widget = 0 ) const;
+private:
+    void drawDial(const QStyleOptionComplex *opt,
+                  QPainter *p) const;
+    void drawFader(const QStyleOptionComplex *opt,
+                   QPainter *p) const;
 };
 
 #endif /*CLASSICTYLE_H_*/

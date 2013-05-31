@@ -25,7 +25,5 @@ void FaderControl::setMaximum(int Max)
 
 void FaderControl::setStyle(QStyle *style)
 {
-    style->signalsBlocked();
-    const QString classicStyle = QString("QSlider::groove:vertical { background: red; position: absolute; left: 4px; right: 4px;}  QSlider::handle:vertical {height: 10px; background: darkGrey; margin: 0 -4px;} QSlider::add-page:vertical {background: darkCyan;} QSlider::sub-page:vertical {background: white;}");
-    verticalSlider->setStyleSheet(classicStyle);
+    verticalSlider->setStyle(style);
 }

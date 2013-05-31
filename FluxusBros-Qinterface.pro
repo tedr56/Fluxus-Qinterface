@@ -31,7 +31,10 @@ SOURCES +=\
     src/mediawidget.cpp \
     src/droptabwidget.cpp \
     src/configdialogpages.cpp \
-    src/configdialog.cpp
+    src/configdialog.cpp \
+    src/configfluxus.cpp \
+    src/heads.cpp \
+    src/fluxushead.cpp
 
 HEADERS  += \
     src/mainwindow.h \
@@ -57,7 +60,10 @@ HEADERS  += \
     src/mediawidget.h \
     src/droptabwidget.h \
     src/configdialogpages.h \
-    src/configdialog.h
+    src/configdialog.h \
+    src/configfluxus.h \
+    src/heads.h \
+    src/fluxushead.h
 
 FORMS    += \
     src/mainwindow.ui \
@@ -79,6 +85,7 @@ linux*:!simulator {
     CONFIG += link_pkgconfig x11
     PKGCONFIG += alsa
     LIBS += -lpthread -lasound
+    INCLUDEPATH += /usr/include/qjson/
 }
 macx {
     CONFIG += x86 \
@@ -128,10 +135,14 @@ macx {
 }
 
 debug:DEFINES += __RTMIDI_DEBUG__
-LIBS += -fluxusbrosinterfaceplugin
-
+//LIBS += -fluxusbrosinterfaceplugin
+LIBS += -lqjson
 INCLUDEPATH *= ./src
 
 RESOURCES += \
     FBI.qrc
+
 #include(FBI-Plugin.pro)
+
+OTHER_FILES += \
+    README.md

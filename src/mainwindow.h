@@ -16,13 +16,13 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
+class iVjServer : public QMainWindow
 {
     Q_OBJECT
     
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    explicit iVjServer(QWidget *parent = 0);
+    ~iVjServer();
 
 private slots:
     void setOpenTable();
@@ -41,8 +41,10 @@ private:
     QMidiServer *m_midiserver;
     QMidiClient *m_midiclient;
     QOscServer *m_oscserver;
-    QOscClient *m_oscclient;
-    QList<QOscClient*> m_oscclients;
+    QOscServer *m_oscInternalServer;
+    QOscServer *m_oscExternalServer;
+    QOscClient *m_oscInternalClient;
+    QList<QOscClient*> m_oscExternalClients;
 
     int m_currentOut;
     int m_currentIn;
@@ -61,6 +63,7 @@ private:
     void initConnections();
     void initMidiConnections();
     void initOscConnections();
+    void initFluxusConnections();
     void initUi();
     void initActions();
     void initMimeConf();

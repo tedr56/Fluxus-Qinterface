@@ -19,6 +19,7 @@ MediaControl::MediaControl(QWidget *parent) : ButtonControl(parent),
     QSizePolicy WidgetSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     setSizePolicy(WidgetSizePolicy);
     verticalLayout->setAlignment(m_nameLabel, Qt::AlignHCenter);
+    connect(MultiButton, SIGNAL(pressed()), this, SIGNAL(activated()));
 }
 
 QString MediaControl::mediaName()
@@ -52,7 +53,7 @@ void MediaControl::mouseReleaseEvent(QMouseEvent *event)
 {
     if(event->buttons() & Qt::LeftButton){
         if(!m_dragging)
-            emit clicking();
+            emit selected();
     }
 }
 

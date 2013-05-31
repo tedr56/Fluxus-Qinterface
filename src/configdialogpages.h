@@ -12,6 +12,18 @@
 
 class ConfigDialog;
 
+//class FluxusHeads : public QWidget
+//{
+//    Q_OBJECT
+//    friend class ConfigDialog;
+//public:
+//    FluxusHeads(QWidget* parent = 0);
+//public slots:
+//    void FluxusHeadsChanged();
+//private:
+//    bool changed;
+//};
+
 class OscConnections : public QWidget
 {
     Q_OBJECT
